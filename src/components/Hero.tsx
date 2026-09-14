@@ -8,13 +8,9 @@ import { InteractiveHeroCharacter } from "./InteractiveHeroCharacter";
 
 interface HeroProps {
   onOpenContact: () => void;
-  onExploreClick?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({
-  onOpenContact,
-  onExploreClick,
-}) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
   const [displayName, setDisplayName] = React.useState("Imanuel");
 
   React.useEffect(() => {
@@ -88,31 +84,27 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Subtle backdrop circle behind robot */}
           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/[0.05] to-white/[0.01] border border-white/[0.06] blur-[2px] scale-90 sm:scale-95 pointer-events-none" />
 
-          {/* FLOATER 1: Top-Left (Moon 3D) */}
+          {/* FLOATER 1: Top-Left (3D Curling Barrel Wave) */}
           <motion.div
             animate={{
               y: [-8, 8, -8],
-              rotate: [-4, 4, -4],
+              rotate: [-4, 5, -4],
             }}
             transition={{
               duration: 4.5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute -top-4 -left-4 sm:-top-8 sm:-left-10 z-20 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none select-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]"
+            className="absolute -top-4 -left-4 sm:-top-8 sm:-left-12 z-20 w-16 h-16 sm:w-22 sm:h-22 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
           >
             <img
-              src="/assets/moon_icon.png"
-              alt="Moon 3D Object"
-              className="w-full h-full object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src =
-                  "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png";
-              }}
+              src="/assets/surf_wave.png"
+              alt="3D Barrel Wave"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(56,189,248,0.4)]"
             />
           </motion.div>
 
-          {/* FLOATER 2: Bottom-Left (P59 3D Star/Crystal) */}
+          {/* FLOATER 2: Bottom-Left (3D Surf Fin / Skeg) */}
           <motion.div
             animate={{
               y: [8, -8, 8],
@@ -124,24 +116,20 @@ export const Hero: React.FC<HeroProps> = ({
               ease: "easeInOut",
               delay: 0.8,
             }}
-            className="absolute -bottom-2 -left-6 sm:bottom-4 sm:-left-12 z-20 w-16 h-16 sm:w-22 sm:h-22 pointer-events-none select-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]"
+            className="absolute -bottom-2 -left-6 sm:bottom-4 sm:-left-12 z-20 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
           >
             <img
-              src="/assets/p59_1.png"
-              alt="Geometric 3D Object"
-              className="w-full h-full object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src =
-                  "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png";
-              }}
+              src="/assets/surf_fin.png"
+              alt="3D Surfboard Fin"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(229,72,77,0.35)]"
             />
           </motion.div>
 
-          {/* FLOATER 3: Top-Right (Lego 3D Brick) */}
+          {/* FLOATER 3: Top-Right (3D Radiant Surf Sun) */}
           <motion.div
             animate={{
               y: [-10, 10, -10],
-              rotate: [5, -5, 5],
+              rotate: [8, -8, 8],
             }}
             transition={{
               duration: 4.8,
@@ -149,20 +137,16 @@ export const Hero: React.FC<HeroProps> = ({
               ease: "easeInOut",
               delay: 0.4,
             }}
-            className="absolute -top-4 -right-4 sm:-top-8 sm:-right-10 z-20 w-16 h-16 sm:w-22 sm:h-22 pointer-events-none select-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]"
+            className="absolute -top-4 -right-4 sm:-top-8 sm:-right-12 z-20 w-16 h-16 sm:w-22 sm:h-22 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
           >
             <img
-              src="/assets/lego_icon.png"
-              alt="Lego 3D Block"
-              className="w-full h-full object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src =
-                  "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png";
-              }}
+              src="/assets/surf_sun.png"
+              alt="3D Surf Sun"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(251,191,36,0.4)]"
             />
           </motion.div>
 
-          {/* FLOATER 4: Bottom-Right (Torus / Ring 3D Object) */}
+          {/* FLOATER 4: Bottom-Right (3D Surf Wax Disc) */}
           <motion.div
             animate={{
               y: [10, -10, 10],
@@ -174,23 +158,19 @@ export const Hero: React.FC<HeroProps> = ({
               ease: "easeInOut",
               delay: 1.2,
             }}
-            className="absolute -bottom-2 -right-6 sm:bottom-4 sm:-right-12 z-20 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none select-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)]"
+            className="absolute -bottom-2 -right-6 sm:bottom-4 sm:-right-12 z-20 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
           >
             <img
-              src="/assets/group_134.png"
-              alt="Torus 3D Shape"
-              className="w-full h-full object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src =
-                  "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png";
-              }}
+              src="/assets/surf_wax.png"
+              alt="3D Surf Wax Disc"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(45,212,191,0.35)]"
             />
           </motion.div>
 
-          {/* MAIN HERO CHARACTER WITH MAGNET & 3 INTERACTIVE ZONES */}
+          {/* MAIN HERO CHARACTER IMAGE WITH MAGNET PHYSICS & THREE INTERACTIVE ZONES */}
           <Magnet
-            strength={0.35}
-            className="relative z-10 w-full flex justify-center items-center"
+            strength={0.25}
+            className="relative z-10 w-full flex justify-center"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -198,8 +178,8 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full flex justify-center items-center py-2"
             >
-              {/* Ground Shadow */}
-              <div className="absolute bottom-6 w-3/4 h-10 bg-black/70 blur-xl rounded-full pointer-events-none" />
+              {/* Glow filter under character */}
+              <div className="absolute bottom-8 w-3/4 h-12 bg-black/60 blur-xl rounded-full pointer-events-none" />
 
               <InteractiveHeroCharacter />
             </motion.div>
@@ -212,12 +192,6 @@ export const Hero: React.FC<HeroProps> = ({
             <a
               id="hero-explore-work-btn"
               href="#projects"
-              onClick={(e) => {
-                if (onExploreClick) {
-                  e.preventDefault();
-                  onExploreClick();
-                }
-              }}
               className="px-6 sm:px-8 py-3.5 rounded-full bg-white text-black hover:bg-[#F1F5F9] font-semibold text-sm transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.35)] flex items-center gap-2"
             >
               <span>Explore Projects</span>
