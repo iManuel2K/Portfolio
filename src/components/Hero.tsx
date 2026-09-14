@@ -99,7 +99,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             title="CGI Simulation: Ocean Fluid Dynamics"
           >
             <img
-              src="/assets/surf_wave.jpg"
+              src="/assets/surf_wave.png"
               alt="CGI Simulation: Ocean Wave"
               className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(56,189,248,0.45)] transition-transform duration-300 group-hover/float:scale-110"
             />
@@ -126,7 +126,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             title="3D Modeling: Poly Mesh Geometry"
           >
             <img
-              src="/assets/surf_wireframe.jpg"
+              src="/assets/surf_wireframe.png"
               alt="3D Modeling Geometry"
               className="w-full h-full object-contain filter drop-shadow-[0_0_14px_rgba(45,212,191,0.45)] transition-transform duration-300 group-hover/float:scale-110"
             />
@@ -153,7 +153,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             title="Cinematics & Commercial Direction"
           >
             <img
-              src="/assets/surf_camera.jpg"
+              src="/assets/surf_camera.png"
               alt="Cinematics & Direction"
               className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(229,72,77,0.4)] transition-transform duration-300 group-hover/float:scale-110"
             />
@@ -180,7 +180,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             title="Real-Time Interactive WebGL & Creative Energy"
           >
             <img
-              src="/assets/surf_bolt.jpg"
+              src="/assets/surf_bolt.png"
               alt="Real-Time Interactive WebGL"
               className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(251,191,36,0.45)] transition-transform duration-300 group-hover/float:scale-110"
             />
