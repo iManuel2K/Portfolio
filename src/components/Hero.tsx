@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
           {/* Subtle backdrop circle behind robot */}
           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/[0.05] to-white/[0.01] border border-white/[0.06] blur-[2px] scale-90 sm:scale-95 pointer-events-none" />
 
-          {/* FLOATER 1: Top-Left (3D Curling Barrel Wave) */}
+          {/* FLOATER 1: Top-Left - 3D Ocean Barrel Wave (Fluid Simulation & CGI Waves) */}
           <motion.div
             animate={{
               y: [-8, 8, -8],
@@ -95,20 +95,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute -top-4 -left-4 sm:-top-8 sm:-left-12 z-20 w-16 h-16 sm:w-22 sm:h-22 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
+            className="group/float absolute -top-4 -left-4 sm:-top-8 sm:-left-12 z-20 w-16 h-16 sm:w-22 sm:h-22 pointer-events-auto cursor-pointer select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
+            title="CGI Simulation: Ocean Fluid Dynamics"
           >
             <img
-              src="/assets/surf_wave.png"
-              alt="3D Barrel Wave"
-              className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(56,189,248,0.4)]"
+              src="/assets/surf_wave.jpg"
+              alt="CGI Simulation: Ocean Wave"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(56,189,248,0.45)] transition-transform duration-300 group-hover/float:scale-110"
             />
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover/float:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              <span className="px-2 py-0.5 rounded bg-black/80 border border-sky-400/30 text-[9px] font-mono uppercase tracking-wider text-sky-300">
+                Fluid Sim
+              </span>
+            </div>
           </motion.div>
 
-          {/* FLOATER 2: Bottom-Left (3D Surf Fin / Skeg) */}
+          {/* FLOATER 2: Bottom-Left - 3D Wireframe Mesh Cube (3D Modeling & Topology) */}
           <motion.div
             animate={{
               y: [8, -8, 8],
-              rotate: [6, -6, 6],
+              rotate: [8, -8, 8],
             }}
             transition={{
               duration: 5.2,
@@ -116,20 +122,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               ease: "easeInOut",
               delay: 0.8,
             }}
-            className="absolute -bottom-2 -left-6 sm:bottom-4 sm:-left-12 z-20 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
+            className="group/float absolute -bottom-2 -left-6 sm:bottom-4 sm:-left-12 z-20 w-15 h-15 sm:w-20 sm:h-20 pointer-events-auto cursor-pointer select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
+            title="3D Modeling: Poly Mesh Geometry"
           >
             <img
-              src="/assets/surf_fin.png"
-              alt="3D Surfboard Fin"
-              className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(229,72,77,0.35)]"
+              src="/assets/surf_wireframe.jpg"
+              alt="3D Modeling Geometry"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_14px_rgba(45,212,191,0.45)] transition-transform duration-300 group-hover/float:scale-110"
             />
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover/float:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              <span className="px-2 py-0.5 rounded bg-black/80 border border-teal-400/30 text-[9px] font-mono uppercase tracking-wider text-teal-300">
+                3D Topology
+              </span>
+            </div>
           </motion.div>
 
-          {/* FLOATER 3: Top-Right (3D Radiant Surf Sun) */}
+          {/* FLOATER 3: Top-Right - 3D Cinema Production Camera (Motion Design & Commercial Direction) */}
           <motion.div
             animate={{
               y: [-10, 10, -10],
-              rotate: [8, -8, 8],
+              rotate: [6, -6, 6],
             }}
             transition={{
               duration: 4.8,
@@ -137,20 +149,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               ease: "easeInOut",
               delay: 0.4,
             }}
-            className="absolute -top-4 -right-4 sm:-top-8 sm:-right-12 z-20 w-16 h-16 sm:w-22 sm:h-22 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
+            className="group/float absolute -top-4 -right-4 sm:-top-8 sm:-right-12 z-20 w-16 h-16 sm:w-22 sm:h-22 pointer-events-auto cursor-pointer select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
+            title="Cinematics & Commercial Direction"
           >
             <img
-              src="/assets/surf_sun.png"
-              alt="3D Surf Sun"
-              className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(251,191,36,0.4)]"
+              src="/assets/surf_camera.jpg"
+              alt="Cinematics & Direction"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(229,72,77,0.4)] transition-transform duration-300 group-hover/float:scale-110"
             />
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover/float:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              <span className="px-2 py-0.5 rounded bg-black/80 border border-[#E5484D]/40 text-[9px] font-mono uppercase tracking-wider text-[#FFA4A8]">
+                Cinematics
+              </span>
+            </div>
           </motion.div>
 
-          {/* FLOATER 4: Bottom-Right (3D Surf Wax Disc) */}
+          {/* FLOATER 4: Bottom-Right - 3D Cyber Surf Lightning Bolt (Real-Time Interactive WebGL & Creative Energy) */}
           <motion.div
             animate={{
               y: [10, -10, 10],
-              rotate: [-8, 8, -8],
+              rotate: [-10, 10, -10],
             }}
             transition={{
               duration: 5.6,
@@ -158,13 +176,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               ease: "easeInOut",
               delay: 1.2,
             }}
-            className="absolute -bottom-2 -right-6 sm:bottom-4 sm:-right-12 z-20 w-14 h-14 sm:w-20 sm:h-20 pointer-events-none select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
+            className="group/float absolute -bottom-2 -right-6 sm:bottom-4 sm:-right-12 z-20 w-15 h-15 sm:w-20 sm:h-20 pointer-events-auto cursor-pointer select-none drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]"
+            title="Real-Time Interactive WebGL & Creative Energy"
           >
             <img
-              src="/assets/surf_wax.png"
-              alt="3D Surf Wax Disc"
-              className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(45,212,191,0.35)]"
+              src="/assets/surf_bolt.jpg"
+              alt="Real-Time Interactive WebGL"
+              className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(251,191,36,0.45)] transition-transform duration-300 group-hover/float:scale-110"
             />
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover/float:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              <span className="px-2 py-0.5 rounded bg-black/80 border border-amber-400/30 text-[9px] font-mono uppercase tracking-wider text-amber-300">
+                Real-Time 3D
+              </span>
+            </div>
           </motion.div>
 
           {/* MAIN HERO CHARACTER IMAGE WITH MAGNET PHYSICS & THREE INTERACTIVE ZONES */}
