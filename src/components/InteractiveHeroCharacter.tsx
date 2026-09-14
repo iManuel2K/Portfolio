@@ -135,52 +135,84 @@ export const InteractiveHeroCharacter: React.FC<
           transition={{ duration: 0.4 }}
         />
 
-        {/* 3. CAP LIFT INTERACTION OVERLAY */}
+        {/* 3. REALISTIC CAP LIFT ANIMATION OVERLAY */}
         <AnimatePresence>
           {activeZone === "cap" && (
             <motion.div
-              initial={{ y: 0, scale: 0.95, opacity: 0 }}
-              animate={{ y: -22, scale: 1.06, rotate: -3, opacity: 1 }}
-              exit={{ y: 0, scale: 1, rotate: 0, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 350, damping: 20 }}
-              className="absolute top-[1%] left-[20%] w-[60%] h-[20%] pointer-events-none z-30"
+              initial={{ y: 0, scale: 1, rotate: 0 }}
+              animate={{
+                y: [-4, -36, -28],
+                rotate: [0, -6, -4],
+                scale: [1, 1.05, 1.03],
+              }}
+              exit={{
+                y: [null, -10, 0],
+                rotate: [null, -2, 0],
+                scale: [null, 1.01, 1],
+                transition: { duration: 0.35, ease: "easeIn" },
+              }}
+              transition={{
+                duration: 0.55,
+                ease: [0.175, 0.885, 0.32, 1.275],
+              }}
+              className="absolute top-0 left-[12%] w-[76%] pointer-events-none z-35 drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)]"
             >
-              {/* Lifting Cap Aura & Glow */}
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-[#E5484D]/30 to-white/20 blur-md rounded-full" />
-              <div className="relative flex items-center justify-center h-full">
-                <span className="px-3 py-1 rounded-full bg-black/80 border border-[#E5484D]/60 text-[#FFA4A8] text-xs font-semibold tracking-wider uppercase shadow-[0_0_20px_rgba(229,72,77,0.5)] backdrop-blur-md flex items-center gap-1.5 animate-pulse">
-                  <Sparkles className="w-3 h-3 text-[#E5484D]" />
-                  Cap Lifted!
-                </span>
-              </div>
+              {/* Isolated high-res 3D cap physically lifting off the robot's head */}
+              <img
+                src="/assets/hero_cap_isolated.png"
+                alt="Lifting Cap 3D"
+                className="w-full h-auto object-contain pointer-events-none filter drop-shadow-[0_15px_25px_rgba(229,72,77,0.35)]"
+              />
+              {/* Subtle dynamic shadow under the lifted cap */}
+              <motion.div
+                initial={{ opacity: 0, scaleX: 0.8 }}
+                animate={{ opacity: 0.6, scaleX: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3/4 h-3 bg-black/70 blur-md rounded-full"
+              />
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* 4. WATER SPLASH & WET SHINE SIMULATION */}
+        {/* 4. REALISTIC OCEAN WATER SPLASH & DROPLET SIMULATION */}
         <AnimatePresence>
           {waterSplash && (
             <>
-              {/* Translucent water splash fluid wave across board & legs */}
+              {/* Real 3D simulated water splash asset bursting along the surfboard */}
               <motion.div
-                initial={{ y: 80, opacity: 0, scaleY: 0.5 }}
-                animate={{ y: 0, opacity: 1, scaleY: 1 }}
-                exit={{ y: 40, opacity: 0 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
-                className="absolute inset-x-0 bottom-[5%] h-[40%] pointer-events-none z-25 bg-gradient-to-t from-cyan-500/30 via-sky-400/15 to-transparent backdrop-blur-[1px] rounded-3xl"
-              />
+                initial={{ y: 40, opacity: 0, scale: 0.75 }}
+                animate={{
+                  y: [-10, -25, -15],
+                  opacity: [0, 1, 0.9],
+                  scale: [0.8, 1.08, 1.02],
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 1.1,
+                  y: -5,
+                  transition: { duration: 0.6 },
+                }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute bottom-[4%] -left-[14%] w-[90%] sm:w-[95%] pointer-events-none z-40 mix-blend-screen"
+              >
+                <img
+                  src="/assets/water_splash.png"
+                  alt="Dynamic Ocean Water Splash"
+                  className="w-full h-auto object-contain filter drop-shadow-[0_0_20px_rgba(56,189,248,0.7)]"
+                />
+              </motion.div>
 
-              {/* Wet glistening droplets */}
+              {/* Surface wet specular sheen on surfboard & legs */}
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.95 }}
+                animate={{ opacity: [0, 0.75, 0.4] }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 1.2 }}
-                className="absolute inset-0 pointer-events-none z-20 bg-[radial-gradient(#38bdf8_1.5px,transparent_1.5px)] [background-size:16px_16px] opacity-60 mix-blend-screen"
+                transition={{ duration: 1.8 }}
+                className="absolute inset-0 pointer-events-none z-20 bg-gradient-to-tr from-cyan-400/20 via-sky-300/10 to-transparent mix-blend-overlay"
               />
 
-              {/* Water Splash Particles Burst */}
-              <div className="absolute inset-0 pointer-events-none z-30 overflow-hidden">
+              {/* High-speed water droplet particles flying off the board */}
+              <div className="absolute inset-0 pointer-events-none z-45 overflow-hidden">
                 {particles.map((p) => (
                   <motion.div
                     key={p.id}
@@ -193,11 +225,11 @@ export const InteractiveHeroCharacter: React.FC<
                     animate={{
                       x: `calc(${p.x}% + ${p.vx}px)`,
                       y: `calc(${p.y}% + ${p.vy}px)`,
-                      opacity: 0,
-                      scale: 0.2,
+                      opacity: [p.opacity, p.opacity * 0.9, 0],
+                      scale: [1, 1.2, 0.2],
                     }}
-                    transition={{ duration: 1.1, ease: "easeOut" }}
-                    className="absolute rounded-full bg-cyan-200 shadow-[0_0_8px_rgba(56,189,248,0.9)]"
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="absolute rounded-full bg-white border border-cyan-300/70 shadow-[0_0_8px_rgba(186,230,253,0.95)]"
                     style={{ width: `${p.size}px`, height: `${p.size}px` }}
                   />
                 ))}
