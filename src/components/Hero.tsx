@@ -4,12 +4,17 @@ import { Magnet } from "./Magnet";
 import { FadeIn } from "./FadeIn";
 import { ContactButton } from "./ContactButton";
 import { ArrowDown, Sparkles } from "lucide-react";
+import { InteractiveHeroCharacter } from "./InteractiveHeroCharacter";
 
 interface HeroProps {
   onOpenContact: () => void;
+  onExploreClick?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
+export const Hero: React.FC<HeroProps> = ({
+  onOpenContact,
+  onExploreClick,
+}) => {
   const [displayName, setDisplayName] = React.useState("Imanuel");
 
   React.useEffect(() => {
@@ -101,7 +106,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               alt="Moon 3D Object"
               className="w-full h-full object-contain"
               onError={(e) => {
-                // Fallback if local asset is loading
                 (e.target as HTMLImageElement).src =
                   "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png";
               }}
@@ -183,10 +187,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             />
           </motion.div>
 
-          {/* MAIN HERO CHARACTER IMAGE WITH MAGNET PHYSICS */}
+          {/* MAIN HERO CHARACTER WITH MAGNET & 3 INTERACTIVE ZONES */}
           <Magnet
-            strength={0.4}
-            className="relative z-10 cursor-grab active:cursor-grabbing w-full"
+            strength={0.35}
+            className="relative z-10 w-full flex justify-center items-center"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -194,17 +198,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full flex justify-center items-center py-2"
             >
-              {/* Glow filter under character */}
-              <div className="absolute bottom-8 w-3/4 h-12 bg-black/60 blur-xl rounded-full pointer-events-none" />
+              {/* Ground Shadow */}
+              <div className="absolute bottom-6 w-3/4 h-10 bg-black/70 blur-xl rounded-full pointer-events-none" />
 
-              <img
-                id="hero-robot-portrait"
-                src="/assets/hero_robot.png"
-                alt="IMNL 3D Hero Robot Character"
-                referrerPolicy="no-referrer"
-                className="w-auto h-[320px] sm:h-[420px] md:h-[480px] lg:h-[540px] max-w-full object-cover rounded-2xl border border-white/10 shadow-[0_20px_45px_rgba(0,0,0,0.85)] select-none transition-transform duration-300 hover:scale-[1.02]"
-                draggable={false}
-              />
+              <InteractiveHeroCharacter />
             </motion.div>
           </Magnet>
         </div>
@@ -215,6 +212,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact }) => {
             <a
               id="hero-explore-work-btn"
               href="#projects"
+              onClick={(e) => {
+                if (onExploreClick) {
+                  e.preventDefault();
+                  onExploreClick();
+                }
+              }}
               className="px-6 sm:px-8 py-3.5 rounded-full bg-white text-black hover:bg-[#F1F5F9] font-semibold text-sm transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.35)] flex items-center gap-2"
             >
               <span>Explore Projects</span>

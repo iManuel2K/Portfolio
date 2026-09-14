@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { X, Mail, Check, Copy, Send, Sparkles } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { X, Mail, Check, Copy, Send, Sparkles } from "lucide-react";
 
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
+export const ContactModal: React.FC<ContactModalProps> = ({
+  isOpen,
+  onClose,
+}) => {
   const [copied, setCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [projectType, setProjectType] = useState('3D Automotive & Product');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [projectType, setProjectType] = useState("3D Automotive & Product");
+  const [message, setMessage] = useState("");
 
-  const contactEmail = 'manolakis.al@gmail.com';
+  const contactEmail = "imanuel.harizi@proton.me";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(contactEmail);
@@ -26,9 +29,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Generate mailto link
-    const subject = encodeURIComponent(`Project Inquiry: ${projectType} - ${name}`);
+    const subject = encodeURIComponent(
+      `Project Inquiry: ${projectType} - ${name}`,
+    );
     const body = encodeURIComponent(
-      `Hi IMNL,\n\nName: ${name}\nEmail: ${email}\nProject Type: ${projectType}\n\nProject Details:\n${message}\n\nSent from IMNL 3D Portfolio`
+      `Hi IMNL,\n\nName: ${name}\nEmail: ${email}\nProject Type: ${projectType}\n\nProject Details:\n${message}\n\nSent from IMNL 3D Portfolio`,
     );
     window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
     setFormSubmitted(true);
@@ -52,7 +57,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             initial={{ opacity: 0, scale: 0.94, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 20 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
             className="relative w-full max-w-xl rounded-3xl bg-[#11141A] border border-white/10 p-6 sm:p-8 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] z-10 my-auto"
           >
             {/* Close Button */}
@@ -73,7 +78,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
               Let&apos;s build something striking.
             </h3>
             <p className="text-sm text-[#8A99A8] mt-2 font-sans-body">
-              Drop a line directly or use the inquiry form below. Available for freelance 3D CGI, concept modeling, and digital direction.
+              Drop a line directly or use the inquiry form below. Available for
+              freelance 3D CGI, concept modeling, and digital direction.
             </p>
 
             {/* Direct Email Pill */}
@@ -83,7 +89,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                   <Mail className="w-4 h-4" />
                 </div>
                 <div className="truncate">
-                  <span className="text-[11px] text-[#606E7B] block font-mono">DIRECT INBOX</span>
+                  <span className="text-[11px] text-[#606E7B] block font-mono">
+                    DIRECT INBOX
+                  </span>
                   <span className="text-sm sm:text-base font-medium text-white truncate">
                     {contactEmail}
                   </span>
@@ -98,7 +106,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 {copied ? (
                   <>
                     <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400 font-semibold">Copied!</span>
+                    <span className="text-emerald-400 font-semibold">
+                      Copied!
+                    </span>
                   </>
                 ) : (
                   <>
@@ -113,9 +123,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             {formSubmitted ? (
               <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center space-y-3">
                 <Check className="w-8 h-8 text-emerald-400 mx-auto" />
-                <h4 className="text-lg font-bold text-white">Opening Email Client...</h4>
+                <h4 className="text-lg font-bold text-white">
+                  Opening Email Client...
+                </h4>
                 <p className="text-xs text-[#CBD5E1]">
-                  If your email client didn&apos;t open automatically, you can email directly to{' '}
+                  If your email client didn&apos;t open automatically, you can
+                  email directly to{" "}
                   <span className="font-mono text-white">{contactEmail}</span>
                 </p>
                 <button
@@ -166,11 +179,21 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     onChange={(e) => setProjectType(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl bg-[#0B0D12] border border-white/10 text-white text-sm focus:outline-none focus:border-[#E5484D] transition-colors cursor-pointer"
                   >
-                    <option value="3D Automotive & Product">3D Automotive & Product CGI</option>
-                    <option value="Motion Design & Animation">Motion Design & Commercials</option>
-                    <option value="Interactive Web Experience">Interactive 3D Web & Configurator</option>
-                    <option value="Architectural Renovation">Architecture & Space Visualization</option>
-                    <option value="General Collaboration">General Inquiries & Collaboration</option>
+                    <option value="3D Automotive & Product">
+                      3D Automotive & Product CGI
+                    </option>
+                    <option value="Motion Design & Animation">
+                      Motion Design & Commercials
+                    </option>
+                    <option value="Interactive Web Experience">
+                      Interactive 3D Web & Configurator
+                    </option>
+                    <option value="Architectural Renovation">
+                      Architecture & Space Visualization
+                    </option>
+                    <option value="General Collaboration">
+                      General Inquiries & Collaboration
+                    </option>
                   </select>
                 </div>
 

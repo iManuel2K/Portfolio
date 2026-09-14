@@ -1,24 +1,28 @@
-import React from 'react';
-import { FadeIn } from './FadeIn';
-import { ContactButton } from './ContactButton';
-import { ArrowUpRight, Mail } from 'lucide-react';
+import React from "react";
+import { FadeIn } from "./FadeIn";
+import { ContactButton } from "./ContactButton";
+import { ArrowUpRight, Mail } from "lucide-react";
 
 interface FooterProps {
   onOpenContact: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
-  const contactEmail = 'manolakis.al@gmail.com';
+  const contactEmail = "imanuel.harizi@proton.me";
 
   const socialLinks = [
-    { label: 'Instagram', href: 'https://instagram.com' },
-    { label: 'ArtStation', href: 'https://artstation.com' },
-    { label: 'LinkedIn', href: 'https://linkedin.com' },
-    { label: 'X / Twitter', href: 'https://x.com' },
+    { label: "Instagram", href: "https://www.instagram.com/imanuel.harizi/" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/imanuel-harizi-332458241/",
+    },
   ];
 
   return (
-    <footer id="contact" className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08] overflow-hidden">
+    <footer
+      id="contact"
+      className="relative pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08] overflow-hidden"
+    >
       {/* Background glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-[#E5484D]/10 blur-[130px] pointer-events-none rounded-full" />
 
@@ -31,17 +35,26 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
 
         <FadeIn delay={0.1} direction="up">
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight max-w-3xl uppercase leading-tight">
-            Let&apos;s create something <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E5484D] via-[#FF8A48] to-[#FFFFFF]">unforgettable</span> together.
+            Let&apos;s create something{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E5484D] via-[#FF8A48] to-[#FFFFFF]">
+              unforgettable
+            </span>{" "}
+            together.
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.2} direction="up">
           <p className="text-base sm:text-lg text-[#8A99A8] max-w-xl font-sans-body">
-            Open for commissioned 3D CGI campaigns, bespoke concept visualization, and creative technical partnerships.
+            Open for commissioned 3D CGI campaigns, bespoke concept
+            visualization, and creative technical partnerships.
           </p>
         </FadeIn>
 
-        <FadeIn delay={0.3} direction="up" className="pt-4 flex flex-wrap items-center justify-center gap-4">
+        <FadeIn
+          delay={0.3}
+          direction="up"
+          className="pt-4 flex flex-wrap items-center justify-center gap-4"
+        >
           <ContactButton
             id="footer-contact-modal-btn"
             label="Start a Conversation"
@@ -81,7 +94,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
         <div className="w-full flex flex-col sm:flex-row items-center justify-between text-xs text-[#606E7B] pt-6 gap-4 font-sans-body">
           <p>© 2026 IMNL 3D. All rights reserved.</p>
           <p className="flex items-center gap-1">
-            <span>Crafted with Kanit typography, Tailwind, &amp; Framer Motion</span>
+            <span>
+              Crafted with Kanit typography, Tailwind, &amp; Framer Motion
+            </span>
           </p>
         </div>
       </div>
