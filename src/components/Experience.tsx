@@ -19,6 +19,14 @@ const roles = [
       'Developed and maintained publishing and internal web products across backend, frontend and CMS workflows in a production environment.',
     skills: ['PHP', 'MySQL', 'JavaScript', 'Vue / React', 'CMS'],
   },
+  {
+    period: '2025 — Present',
+    company: 'Independent',
+    role: 'Freelance Web & Product Developer',
+    description:
+      'Designing and building websites and digital products for businesses and self-initiated ventures—from product strategy and interface design to full-stack implementation and launch.',
+    skills: ['React', 'Next.js', 'TypeScript', 'Product design', 'SEO', 'Full-stack development'],
+  },
 ];
 
 export const Experience: React.FC = () => (
