@@ -21,6 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
   const navLinks = [
     { label: 'About', href: '#about' },
+    { label: 'Experience', href: '#experience' },
     { label: 'Services', href: '#services' },
     { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' },
@@ -41,7 +42,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
           <a
             id="nav-logo"
             href="#"
-            className="group flex items-center gap-3 focus:outline-none"
+            aria-label="IMNL home"
+            className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5484D] rounded-xl"
           >
             <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-[#1C2028] to-[#121419] border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-[#E5484D]/50 transition-colors">
               <span className="font-bold text-sm tracking-wider text-white">I</span>
@@ -49,10 +51,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             </div>
             <div className="flex flex-col">
               <span className="text-base font-bold tracking-tight text-white group-hover:text-[#F1F5F9] transition-colors">
-                IMNL <span className="text-[#E5484D]">3D</span>
+                IMNL <span className="text-[#E5484D]">DEV</span>
               </span>
               <span className="text-[10px] text-[#8A99A8] uppercase tracking-wider font-mono">
-                Creative Studio
+                Product &amp; Creative
               </span>
             </div>
           </a>
@@ -63,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               <a
                 key={link.label}
                 href={link.href}
-                className="px-4 py-1.5 text-xs lg:text-sm font-medium text-[#8A99A8] hover:text-white transition-colors duration-200 rounded-full hover:bg-white/[0.05]"
+                className="px-3 lg:px-4 py-1.5 text-xs lg:text-sm font-medium text-[#A7B4C0] hover:text-white transition-colors duration-200 rounded-full hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5484D]"
               >
                 {link.label}
               </a>
@@ -93,6 +95,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-[#D7E2EA] hover:text-white"
               aria-label="Toggle Navigation Menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -108,6 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden border-b border-white/[0.08] bg-[#0C0C0C]/95 backdrop-blur-2xl px-6 py-6 space-y-4"
+            id="mobile-navigation"
           >
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (

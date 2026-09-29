@@ -8,44 +8,62 @@ export const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       number: "01",
-      category: "Automotive CGI & Concept Design",
-      year: "2024",
+      category: "Product Engineering & Automotive UX",
+      year: "2026",
       title: "CapCar — The Digital Garage for Project Cars",
       description:
-        "A full digital platform and 3D visualization suite for automotive builders. Users can preview aerodynamic body kits, paint variations, custom wheel setups, and compare their starting vehicle against aggressive concept directions.",
+        "A self-initiated product for project-car enthusiasts to organize vehicles, discover compatible parts, plan modifications and keep the story of a build in one place.",
       tags: [
-        "3D Automotive CGI",
-        "Interactive Comparison",
-        "Concept Design",
-        "UI/UX Architecture",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Supabase",
+        "Product Design",
       ],
       image: "/assets/capcar.png",
-      liveUrl: "https://capcar-im.netlify.app/",
+      liveUrl: "https://capcar.dev/",
+      githubUrl: "https://github.com/iManuel2K/capcar",
+      role: "Product design, frontend architecture and full-stack implementation",
+      status: "Public beta",
+      challenge:
+        "Bring fragmented build planning, fitment research, parts discovery and vehicle history into one coherent enthusiast workflow.",
+      solution:
+        "Designed a modular product experience around the Garage, compatible parts, build planning and Roadbook, with authentication, internationalization and provider-backed search.",
+      outcome:
+        "A working public beta with real interactive flows—not a static automotive concept page.",
       highlights: [
-        "Interactive real-time split concept direction slider",
-        "Custom 3D tuned widebody and aerodynamic modeling",
-        "Digital parts catalog and garage management interface",
+        "Garage and vehicle workflows with authenticated product areas",
+        "Parts discovery, fitment concepts and provider integration",
+        "Roadbook, responsive UI and multilingual architecture",
       ],
     },
     {
       number: "02",
-      category: "Web Design & Brand Craftsmanship",
-      year: "2024",
+      category: "Business Website & Local Conversion",
+      year: "2026",
       title: "Harizi Bau — Modern Construction & Renovation",
       description:
-        "A modern digital presence built for high-end tile, flooring, and luxury bathroom renovation craft in Rüsselsheim am Main, Frankfurt, and Wiesbaden. Showcases precise renovation work with architectural clarity and effortless client acquisition.",
+        "A real business website for an established renovation company, designed to make its craftsmanship clear and generate qualified enquiries across the Rhine-Main region.",
       tags: [
-        "Architectural Showcase",
         "Web Development",
-        "Brand Direction",
-        "Responsive Experience",
+        "UX & Conversion",
+        "Local SEO",
+        "Responsive Design",
       ],
       image: "/assets/harizi-bau.png",
       liveUrl: "https://harizibau.de",
+      role: "Strategy, design, development, content structure and launch",
+      status: "Live business website",
+      challenge:
+        "Translate 30 years of practical renovation experience into a trustworthy digital presence for regional homeowners and partners.",
+      solution:
+        "Built a focused service narrative, proof-led project presentation, regional SEO structure and direct enquiry journey around the company’s real work.",
+      outcome:
+        "A production website that gives the family business a credible home beyond marketplace profiles.",
       highlights: [
         "Editorial typography and clean, warm neutral aesthetic",
-        "Interactive service scope and project inquiry funnel",
-        "Regional service coverage across Rhine-Main metropolitan area",
+        "Clear service scope and project enquiry journey",
+        "Regional search coverage for the Rhine-Main area",
       ],
     },
   ];
@@ -71,8 +89,8 @@ export const Projects: React.FC = () => {
         </div>
         <FadeIn delay={0.2} direction="up">
           <p className="text-sm sm:text-base text-[#8A99A8] max-w-md font-sans-body">
-            Deep dives into commercial executions combining bespoke 3D
-            visualization, interactive media, and tailored digital strategy.
+            Real products presented with context, responsibilities, technical
+            decisions and working outcomes.
           </p>
         </FadeIn>
       </div>

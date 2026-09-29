@@ -7,7 +7,13 @@ export interface Project {
   tags: string[];
   image: string;
   liveUrl?: string;
+  githubUrl?: string;
   highlights?: string[];
+  role: string;
+  status: string;
+  challenge: string;
+  solution: string;
+  outcome: string;
 }
 
 export interface ServiceItem {

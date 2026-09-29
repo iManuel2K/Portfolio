@@ -241,14 +241,19 @@ export const InteractiveHeroCharacter: React.FC<
         {/* 5. INTERACTIVE HITBOX ZONES CALIBRATED TO HERO_ROBOT */}
 
         {/* Hitbox A: The Red Cap (Top Head Area: 0% to 22%) */}
-        <div
+        <button
+          type="button"
           id="hero-zone-cap"
-          className="absolute top-0 left-[15%] right-[15%] h-[22%] cursor-pointer z-30 transition-colors"
+          className="absolute top-0 left-[15%] right-[15%] h-[22%] cursor-pointer z-30 transition-colors rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5484D]"
           onMouseEnter={() => {
             setActiveZone("cap");
             if (onInteractionTrigger) onInteractionTrigger("cap");
           }}
           onMouseLeave={() => setActiveZone(null)}
+          onFocus={() => setActiveZone("cap")}
+          onBlur={() => setActiveZone(null)}
+          onClick={() => setActiveZone("cap")}
+          aria-label="Lift the character's cap"
           title="Hover: Lift Cap"
         >
           <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -256,36 +261,43 @@ export const InteractiveHeroCharacter: React.FC<
               Hover Cap
             </span>
           </div>
-        </div>
+        </button>
 
         {/* Hitbox B: The BMW Keys / Robotic Hand (Mid-Left Area around waist: 50% to 75% height, 15% to 45% width) */}
-        <div
+        <button
+          type="button"
           id="hero-zone-keys"
-          className="absolute top-[52%] left-[18%] w-[28%] h-[24%] cursor-pointer z-30 transition-colors"
+          className="absolute top-[52%] left-[18%] w-[28%] h-[24%] cursor-pointer z-30 transition-colors rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
           onMouseEnter={() => {
             setActiveZone("keys");
             if (onInteractionTrigger) onInteractionTrigger("keys");
           }}
           onMouseLeave={() => setActiveZone(null)}
+          onFocus={() => setActiveZone("keys")}
+          onBlur={() => setActiveZone(null)}
           onClick={() => {
             setActiveZone("keys");
             setKeyHits((p) => p + 1);
           }}
           title="Touch Keys: Volumetric Right-Side Light"
+          aria-label="Activate the character's light effect"
         >
           <div className="absolute -top-3 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-black/80 text-amber-300 border border-amber-500/30 backdrop-blur-sm pointer-events-none whitespace-nowrap">
               Touch Keys
             </span>
           </div>
-        </div>
+        </button>
 
         {/* Hitbox C: The Surfboard (Left Back / Lower Rails: 15% to 80% height on far left, plus lower board) */}
-        <div
+        <button
+          type="button"
           id="hero-zone-surfboard"
-          className="absolute top-[18%] left-0 w-[24%] h-[68%] cursor-pointer z-30 transition-colors"
+          className="absolute top-[18%] left-0 w-[24%] h-[68%] cursor-pointer z-30 transition-colors rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           onMouseEnter={triggerSurfSplash}
           onClick={triggerSurfSplash}
+          onFocus={triggerSurfSplash}
+          aria-label="Activate the surfboard water effect"
           title="Hover or Click Surfboard: Ocean Water Splash"
         >
           <div className="absolute top-10 left-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -293,7 +305,7 @@ export const InteractiveHeroCharacter: React.FC<
               Surf Splash
             </span>
           </div>
-        </div>
+        </button>
       </div>
 
       {/* Floating Interactive HUD Status Pill */}

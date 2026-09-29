@@ -12,6 +12,14 @@
     color: #D7E2EA;
     overflow-x: clip;
   }
+
+  html {
+    scroll-padding-top: 6rem;
+  }
+
+  :focus-visible {
+    outline-color: #E5484D;
+  }
 }
 
 .font-kanit {
@@ -51,4 +59,23 @@
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-marquee {
+    animation: none;
+  }
 }

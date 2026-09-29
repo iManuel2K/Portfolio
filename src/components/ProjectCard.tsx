@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import type { Project } from '../types';
 import { LiveProjectButton } from './LiveProjectButton';
 import { FadeIn } from './FadeIn';
-import { Layers, Sparkles } from 'lucide-react';
+import { GitBranch, Layers, Sparkles } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -59,6 +59,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 {project.description}
               </p>
 
+              <dl className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-sans-body">
+                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3.5">
+                  <dt className="font-mono uppercase tracking-wider text-[#768696]">My role</dt>
+                  <dd className="mt-1.5 text-[#D7E2EA] leading-relaxed">{project.role}</dd>
+                </div>
+                <div className="rounded-xl bg-black/20 border border-white/[0.06] p-3.5">
+                  <dt className="font-mono uppercase tracking-wider text-[#768696]">Status</dt>
+                  <dd className="mt-1.5 text-[#D7E2EA] leading-relaxed">{project.status}</dd>
+                </div>
+              </dl>
+
               {/* Highlights / Features if present */}
               {project.highlights && project.highlights.length > 0 && (
                 <div className="mt-5 space-y-2">
@@ -85,13 +96,26 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 ))}
               </div>
 
-              {project.liveUrl && (
-                <div className="pt-2">
+              {(project.liveUrl || project.githubUrl) && (
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  {project.liveUrl && (
                   <LiveProjectButton
                     id={`live-btn-${project.number}`}
                     href={project.liveUrl}
                     label="Explore Live Site"
                   />
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.03] text-xs sm:text-sm font-medium text-[#D7E2EA] hover:bg-white/[0.09] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5484D] transition-colors"
+                    >
+                      <GitBranch className="w-4 h-4" />
+                      View code
+                    </a>
+                  )}
                 </div>
               )}
             </div>
@@ -130,6 +154,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="relative z-10 mt-8 pt-7 border-t border-white/[0.07] grid grid-cols-1 md:grid-cols-3 gap-5">
+          {[
+            ['Challenge', project.challenge],
+            ['Approach', project.solution],
+            ['Outcome', project.outcome],
+          ].map(([label, text]) => (
+            <div key={label}>
+              <h4 className="text-xs font-mono uppercase tracking-wider text-[#E5484D]">{label}</h4>
+              <p className="mt-2 text-sm text-[#A7B4C0] leading-relaxed font-sans-body">{text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </FadeIn>

@@ -11,6 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
   const contactEmail = "imanuel.harizi@proton.me";
 
   const socialLinks = [
+    { label: "GitHub", href: "https://github.com/iManuel2K" },
     { label: "Instagram", href: "https://www.instagram.com/imanuel.harizi/" },
     {
       label: "LinkedIn",
@@ -45,8 +46,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
 
         <FadeIn delay={0.2} direction="up">
           <p className="text-base sm:text-lg text-[#8A99A8] max-w-xl font-sans-body">
-            Open for commissioned 3D CGI campaigns, bespoke concept
-            visualization, and creative technical partnerships.
+            Open to frontend and full-stack opportunities, creative technology
+            collaborations, and selected digital-product projects.
           </p>
         </FadeIn>
 
@@ -92,7 +93,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
 
         {/* Copyright Bar */}
         <div className="w-full flex flex-col sm:flex-row items-center justify-between text-xs text-[#606E7B] pt-6 gap-4 font-sans-body">
-          <p>© 2026 IMNL 3D. All rights reserved.</p>
+          <p>© 2026 Imanuel Harizi / IMNL. All rights reserved.</p>
           <p className="flex items-center gap-1">
             <span>
               Crafted with Kanit typography, Tailwind, &amp; Framer Motion

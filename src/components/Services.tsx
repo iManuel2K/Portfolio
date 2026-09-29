@@ -1,6 +1,6 @@
 import React from 'react';
 import { FadeIn } from './FadeIn';
-import { Layers, Film, Globe, Palette, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Code2, PanelsTopLeft, Waypoints, Palette, CheckCircle2, ArrowRight } from 'lucide-react';
 
 interface ServicesProps {
   onOpenContact: () => void;
@@ -9,49 +9,49 @@ interface ServicesProps {
 export const Services: React.FC<ServicesProps> = ({ onOpenContact }) => {
   const servicesList = [
     {
-      id: 'automotive-product',
-      icon: <Layers className="w-6 h-6 text-[#E5484D]" />,
-      title: '3D Product & Automotive CGI',
-      tagline: 'Hyper-realistic visual assets for marketing and design validation',
+      id: 'web-product',
+      icon: <Code2 className="w-6 h-6 text-[#E5484D]" />,
+      title: 'Web Product Development',
+      tagline: 'From product structure and data flows to production-ready implementation',
       deliverables: [
-        'CAD & Sub-D High Poly Modeling',
-        'Physical PBR Material Synthesis',
-        'Virtual Studio & Outdoor Environments',
-        'Ultra-High-Res 8K Still Renders',
+        'React & Next.js Applications',
+        'TypeScript & API Integration',
+        'Authentication & Data Workflows',
+        'Testing, Performance & Deployment',
       ],
     },
     {
-      id: 'motion-cinematics',
-      icon: <Film className="w-6 h-6 text-[#E5484D]" />,
-      title: 'Motion Design & Commercials',
-      tagline: 'Dynamic visual stories that capture attention and drive engagement',
+      id: 'frontend-interface',
+      icon: <PanelsTopLeft className="w-6 h-6 text-[#E5484D]" />,
+      title: 'Frontend & Interface Engineering',
+      tagline: 'Distinctive interfaces built for clarity, speed and real users',
       deliverables: [
-        'Cinematic Product Reveal Films',
-        'Mechanical Exploded & X-Ray Views',
-        'Social Media 3D Loops & Teasers',
-        'Color Grading & Sound Synchronization',
+        'Responsive Design Systems',
+        'Accessible UI Components',
+        'Interaction & Motion',
+        'Cross-Device Quality Assurance',
       ],
     },
     {
-      id: 'interactive-webgl',
-      icon: <Globe className="w-6 h-6 text-[#E5484D]" />,
-      title: 'Interactive 3D Web Experiences',
-      tagline: 'Bringing lightweight 3D models directly to the browser',
+      id: 'interactive-web',
+      icon: <Waypoints className="w-6 h-6 text-[#E5484D]" />,
+      title: 'Interactive Web Experiences',
+      tagline: 'Purposeful visual interactions that strengthen the product story',
       deliverables: [
-        'Real-Time WebGL Configurators',
-        'Split-View Concept Sliders',
-        'GLTF/GLB Asset Optimization',
-        'Seamless Responsive Integration',
+        'Automotive Visual Concepts',
+        'Interactive Comparisons',
+        'Motion-Led Product Stories',
+        'Responsive Creative Development',
       ],
     },
     {
       id: 'creative-direction',
       icon: <Palette className="w-6 h-6 text-[#E5484D]" />,
-      title: 'Creative Direction & Web Presence',
-      tagline: 'End-to-end design systems tailored to bespoke craft',
+      title: 'Creative Direction & Digital Presence',
+      tagline: 'Focused digital identities for products and specialist businesses',
       deliverables: [
         'Modern Website Architecture',
-        'Digital Portfolio Identity',
+        'Product & Portfolio Identity',
         'Typography & Layout Systems',
         'Performance & SEO Optimization',
       ],
@@ -75,7 +75,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenContact }) => {
         </div>
         <FadeIn delay={0.2} direction="up">
           <p className="text-sm sm:text-base text-[#8A99A8] max-w-md font-sans-body">
-            Tailored 3D and visual solutions designed for ambitious brands, innovative startups, and bespoke artisans.
+            Product engineering and creative development for useful, memorable digital experiences.
           </p>
         </FadeIn>
       </div>
@@ -114,7 +114,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenContact }) => {
                   onClick={onOpenContact}
                   className="inline-flex items-center gap-2 text-xs font-semibold text-[#D7E2EA] group-hover:text-[#E5484D] transition-colors focus:outline-none"
                 >
-                  <span>Inquire for this service</span>
+                  <span>Discuss this capability</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

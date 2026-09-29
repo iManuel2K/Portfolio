@@ -55,11 +55,11 @@ export const ContactButton: React.FC<ContactButtonProps> = ({
   );
 
   const wrapper = href ? (
-    <a href={href} className="inline-block group" onClick={onClick}>
+    <a href={href} className="inline-block group rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5484D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0C0C0C]" onClick={onClick}>
       {content}
     </a>
   ) : (
-    <button type="button" onClick={onClick} className="inline-block group focus:outline-none">
+    <button type="button" onClick={onClick} className="inline-block group rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E5484D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0C0C0C]">
       {content}
     </button>
   );

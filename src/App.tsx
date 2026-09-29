@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Marquee } from './components/Marquee';
 import { About } from './components/About';
+import { Experience } from './components/Experience';
 import { Services } from './components/Services';
 import { Projects } from './components/Projects';
 import { Footer } from './components/Footer';
@@ -26,11 +27,12 @@ export default function App() {
       {/* Global Navigation */}
       <Navbar onOpenContact={() => setContactOpen(true)} />
 
-      {/* Main Content Layout strictly following: Hero -> Marquee -> About -> Services -> Projects */}
+      {/* Main portfolio narrative */}
       <main className="relative z-10">
         <Hero onOpenContact={() => setContactOpen(true)} />
         <Marquee />
         <About />
+        <Experience />
         <Services onOpenContact={() => setContactOpen(true)} />
         <Projects />
       </main>

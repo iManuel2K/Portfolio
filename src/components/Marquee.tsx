@@ -2,21 +2,22 @@ import React from 'react';
 
 export const Marquee: React.FC = () => {
   const items = [
-    '3D MODELING',
-    'CGI ARTISTRY',
-    'MOTION DESIGN',
-    'PRODUCT VISUALIZATION',
-    'ART DIRECTION',
-    'INTERACTIVE 3D',
-    'DIGITAL GARAGE',
-    'BLENDER & C4D',
-    'WEBGL CRAFT',
+    'PRODUCT ENGINEERING',
+    'REACT & NEXT.JS',
+    'TYPESCRIPT',
+    'INTERFACE CRAFT',
+    'FULL-STACK DEVELOPMENT',
+    'ACCESSIBLE UX',
+    'AUTOMOTIVE PRODUCTS',
+    'INTERACTIVE WEB',
+    'PERFORMANCE',
     'CREATIVE DIRECTION',
   ];
 
   return (
     <div
       id="marquee-section"
+      aria-label="Core capabilities"
       className="relative w-full py-6 sm:py-8 bg-[#0E1014] border-y border-white/[0.06] overflow-hidden select-none"
     >
       {/* Left/Right Vignette Gradients */}

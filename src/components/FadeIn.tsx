@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, type HTMLMotionProps } from 'motion/react';
+import { motion, useReducedMotion, type HTMLMotionProps } from 'motion/react';
 
 interface FadeInProps extends HTMLMotionProps<'div'> {
   children: React.ReactNode;
@@ -21,6 +21,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
   once = true,
   ...props
 }) => {
+  const prefersReducedMotion = useReducedMotion();
   const getInitialPosition = () => {
     switch (direction) {
       case 'up':
@@ -37,7 +38,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
     }
   };
 
-  const initial = {
+  const initial = prefersReducedMotion ? false : {
     opacity: 0,
     ...getInitialPosition(),
   };
@@ -45,7 +46,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
   return (
     <motion.div
       initial={initial}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, x: 0, y: 0 }}
       viewport={{ once, margin: '-60px' }}
       transition={{
         duration,
